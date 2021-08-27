@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript para React</title>
+</head>
+<body>
+    
+    <input type="color" name="" id="" data-js="color">
+    <input type="url" name="" id="" placeholder="URL da imagem" data-js="url">
+    <div data-js="image-container"></div>
+
+    <script>
+        
+        // troca imagem
+        const container = document.querySelector('[data-js="image-container"]')
+        const tagImage = document.createElement('img')
+        const imagemInput = document.querySelector('[data-js="url"]')
+        imagemInput.addEventListener('keyup', (event) => {
+            event.preventDefault();
+            
+            tagImage.src = event.target.value;
+            container.appendChild(tagImage)
+        })
+
+        // troca cor
+        const color = document.querySelector('[data-js="color"]')
+        color.addEventListener('change', (event) => {
+            document.body.style.backgroundColor = event.target.value
+        })
+
+    </script>
+</body>
+</html>
