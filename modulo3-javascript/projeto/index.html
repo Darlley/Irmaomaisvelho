@@ -7,39 +7,60 @@
     <title>App Filmes</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        pre{
+            background-color: #bfc4c9;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            width: auto;
+        }
+    </style>
 </head>
 <body>
     
     <div class="container">
         <h1>Filmes</h1>
+        <pre data-js="mostrar">
+
+        </pre>
         <form action="" class="bg-light p-5">
             <div class="row">
                 <div class="col-lg-4">
                     <label for="">Título</label>
-                    <input type="text" name="" id="" class="form-control" placeholder="Titulo" data-js="atualizar">
+                    <input type="text" name="" id="titulo" class="form-control" placeholder="Titulo" onkeyup="atualizar()">
                 </div>
                 <div class="col-lg-3">
                     <label for="">Link</label>
-                    <input type="text" name="" id="" class="form-control" placeholder="URL" data-js="atualizar">
+                    <input type="url" name="" id="url" class="form-control" placeholder="URL" onkeyup="atualizar()">
                 </div>
                 <div class="col-lg-3">
                     <label for="">Categoria</label>
-                    <select name="" id="" class="form-control">
-                        <option value="">Selecionar</option>
-                        <option value="">Categoria 1</option>
-                        <option value="">Categoria 2</option>
-                        <option value="">Categoria 3</option>
+                    <select name="" id="selecao" class="form-control" onchange="atualizar()">
+                        <option>Selecionar</option>
+                        <option>Categoria 1</option>
+                        <option>Categoria 2</option>
+                        <option>Categoria 3</option>
                     </select>
                 </div>
                 <div class="col-lg-2">
                     <label for="">Ano</label>
-                    <input type="number" name="" id="" class="form-control" placeholder="Ano">
+                    <input type="number" name="" id="ano" class="form-control" onkeyup="atualizar()" placeholder="Ano">
                 </div>
             </div>
             <br>
             <div class="d-grid gap-2 col-12 mx-auto">
-                <a href="javascript:void(0)" class="btn btn-lg btn-block btn-success">Cadastrar filme</a>
+                <a href="javascript:void(0)" class="btn btn-lg btn-block btn-success" onclick="cadastrar()">Cadastrar filme</a>
+
+                
+                <input class="form-control" id="cep" type="number" placeholder="Seu CEP">
+                <button class="form-control" id="buscar">Buscar CEP</button>
+                <div id="debug">
+
+                </div>
             </div>
+
         </form>
         <table class="table table-striped table-dark">
             <thead>
@@ -50,20 +71,12 @@
                     <th scope="col" class="text-center">Ações</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td class="align-middle">Filme teste</td>
-                    <td class="align-middle">Categoria teste</td>
-                    <td class="align-middle">2020</td>
-                    <td class="align-end">
-                        <button class="text-white btn btn-info">Acessar</buttonc>
-                        <button class="ms-2 btn btn-danger">Excluir</buttonc>
-                    </td>
-                </tr>
+            <tbody data-js="tabela">
             </tbody>
         </table>
     </div>
 
     <script src="app.js"></script>
+    <script src="cep.js"></script>
 </body>
 </html>
